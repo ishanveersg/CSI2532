@@ -3,6 +3,14 @@
 ### a)
 ![A1.a)](A1a.PNG)
 
+### b)
+![A1.b)](A1b.jpg)
+
+### c)
+![A1.c)](A1c.jpg)
+
+## A2
+![A2](A2.PNG)
 
 # Part B
 ## B1.
@@ -63,19 +71,20 @@ ORDER BY released_date ASC;
 **Input:**
 ```
 WITH users_2019 (id, name) AS (SELECT * FROM users WHERE join_date BETWEEN '2019-01-01' AND '2019-12-31')
-SELECT id,
-name,
-count(licenses.access_code) AS num
+SELECT id, name, COUNT(licenses.access_code) AS num
 FROM users_2019
 LEFT JOIN licenses ON licenses.user_id = id
-GROUP BY name
+GROUP BY id,name
 ORDER BY num DESC;
 ```
 
 
 **Output:**
 ```
-Error
+ id |  name  | num
+----+--------+-----
+ 49 | hayden |   3
+(1 row)
 ```
 
 ## B2.
@@ -174,14 +183,39 @@ COMMIT;
 ```
 
 ### c)
+**Input:**
 ```
 BEGIN;
 -- Remove current licenses primary key
+ALTER TABLE licenses
 DROP CONSTRAINT licenses_pkey;
+COMMIT;
 
-/*
+-- Adding Sketch 52 to "andrew" user with access code
+"xxxyyy111".
+INSERT INTO licenses (user_id, software_name, access_code, software_version)
+VALUES(48, 'Sketch', 'xxxyyy111', 52);
 
-*/
+BEGIN;
+ALTER TABLE licenses
+ADD CONSTRAINT licenses_pkey
+PRIMARY KEY (user_id, software_name, software_version);
+COMMIT;
+```
 
-
+**Proof:**
+```
+ user_id | software_name | access_code | software_version
+---------+---------------+-------------+------------------
+      48 | MS Word       | abc123      |
+      49 | MS Word       | def456      |
+      50 | MS Word       | hij789      |
+      48 | Sketch        | x1y2z3      |
+      51 | Sketch        | x2y3z4      |
+      50 | Sketch        | qwe123      |
+      49 | Obsidian      | rty456      |
+      49 | SublimeText   | uio789      |
+      48 | Sketch        | xxxyyy111   | 52
+(9 rows)
+```
 ### d)
