@@ -12,14 +12,34 @@
 ## A2
 ![A2](A2.PNG)
 
+## A3
+### a)
+```
+-   SELECT ->σ (sigma)
+-   PROJECT -> π(pi)
+-   PRODUCT -> ×(times)
+-   JOIN -> |×| (bow-tie)
+-   UNION -> ∪ (cup)
+-   INTERSECTION -> ∩(cap)
+-   DIFFERENCE -> - (minus)
+-   RENAME ->ρ (rho)
+
+```
+
+### b)
+```
+
+```
+
+
 # Part B
 ## B1.
 ### a) 
 The `SELECT` command is used to select all the users from the database. 
 The `EXTRACT()` function extracts a part from a given date.
-The `AS` command is used to rename the column "users.join_date" with the alias "experience".
+The `AS` command is used to rename a colume or table with an alias.
 The `JOIN` command returns rows that have matching values in the tables.
-The `WHERE` command specifies the constraint that the software_name must be equal to "MS Word".
+The `WHERE` command specifies a specific constraint.
 The `ORDER BY` command is used to either sort the column in ascending or descending order. By default it is set to ascending order. 
 The `COUNT()` function returns the number of rows that matches a specified criterion.
 
@@ -33,7 +53,7 @@ WHERE licenses.software_name = 'MS Word'
 ORDER BY users.name;
 ```
 
-**Brief description:** Output all the names of users and the number of years which have passed since they joined(aliased as "experience"). The rows in the output table must be sorted in ascending order of name, have the same matching values of `user.id` and `licenses.id` and the license must be for "MS Word" only.
+**Brief description:** Output a table with the columns  containing names of users and the number of years which have passed since they joined(aliased as "experience"). The rows in the output table must be sorted in ascending order of name, have the same matching values of `user.id` and `licenses.id` . The license must be for "MS Word" only.
 
 **Output:**
 ```
@@ -219,3 +239,16 @@ COMMIT;
 (9 rows)
 ```
 ### d)
+
+```
+BEGIN;
+INSERT INTO licenses (user_id, software_name, access_code, software_version) 
+SELECT id, 'Sketch', '1monthfree', '52' FROM users 
+LEFT JOIN(
+	SELECT user_id, software_name, access_code, software_version FROM licenses 
+	WHERE software_name = 'Sketch' AND software_version = '52') 
+AS promo
+ON users.id = promo.user_id
+WHERE software_name IS NULL;
+COMMIT;
+```
