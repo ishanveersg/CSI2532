@@ -1,15 +1,15 @@
 ## Question 1
 
-a.
+a. <br/>
 Useful attribute closures:
-[B<sup>+</sup>] → B
-[BA<sup>+</sup>] → A,B,C,D
-[BC<sup>+</sup>] → A,B,C,D
-[BD<sup>+</sup>] → A,B,C,D
+[B<sup>+</sup>] → B <br/>
+[BA<sup>+</sup>] → A,B,C,D <br/>
+[BC<sup>+</sup>] → A,B,C,D <br/>
+[BD<sup>+</sup>] → A,B,C,D <br/>
 
 ∴ Candidate keys = `BA, BC, BD`
 
-b.
+b. <br/>
 BNCF violations: `C → D and D → A`
 
 Decomposing C → D:
@@ -43,9 +43,9 @@ D → A   |
 
 ∴ Collection of relations: R1(AD), R2(CD), and R3(BC)
 
-c.
-Decomposing  C → D does not preserve D → A and AB → C
-Decomposing D → A does not preserve AB → C
+c.<br/>
+Decomposing  `C → D` does not preserve `D → A` and `AB → C`
+Decomposing `D → A` does not preserve `AB → C`
 
 ## Question 2
 
