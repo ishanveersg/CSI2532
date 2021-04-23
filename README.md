@@ -113,10 +113,13 @@ Color
 
 ### b. <br/>
 #### i  <br/>
-We analyse the bitmap for Black: [0 0 1 1]. We take the tuples in the relation where the entries are 1. Thus, the 3rd and 4th tuples are taken. The final result is the corresponding tuples. 
+First, we need to analyse the bitmap index for Black: [0 0 1 1]. <br/>
+Then, the answer is obtained by accessing tuples with 1-entries: 3rd and 4th.
 
 #### ii  <br/>
-We analyse the result of (bitmap for Opel) AND (bitmap for Red): [0 1 0 0]. We take the tuples in the relation where the entries are 1. We then check the tuples where Risk=medium. The tuples that satisfy this condition are counted. Thus, only the 2nd tuples is counted. The final result is 1. 
+First, we intersect the bitmap for Opel with the bitmap index for Red by taking the logical
+AND of the bitmaps, resulting in the bitmap: [0 1 0 0]. <br/>
+Then, we check if the condition Risk=medium is satisfied for all tuples with 1-entries. In this case, only the second tuple is accessed. The final result 1 is returned.
 
 
 ## Question 7
@@ -127,4 +130,4 @@ We analyse the result of (bitmap for Opel) AND (bitmap for Red): [0 1 0 0]. We t
 |4, 12, 16, 20 (overflow)|13|2, 6|/|/|/|/|/|
 
 ### b
-No. There are too many search key values that have to go in the 000 bucket, despite having previously split the 0 and 00 buckets and rehashed their contents for the remaining values. It'd be better to use search key values that aren't multiples of 4.
+No because there are too many search key values that have to go in the 000 bucket, despite having previously split the 0 and 00 buckets and rehashed their contents for the remaining values. It is better to use search key values that aren't multiples of 4.
