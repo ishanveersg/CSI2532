@@ -49,6 +49,18 @@ Decomposing `D → A` does not preserve `AB → C`
 
 ## Question 2
 
+### a. <br/>
+4 Functional Dependincies:
+```
+NIN → eName
+hotelNo → hotelLocation
+NIN → contractNo
+eName → hoursPerWeek
+
+```
+### b. <br/>
+
+### c. <br/>
 
 ## Question 3
 RA symbols used: π, σ, ⋈, ∪
