@@ -54,20 +54,20 @@ Decomposing `D → A` does not preserve `AB → C`
 RA symbols used: π, σ, ⋈, ∪
 TRC symbols used: ∃, ∈, ∧
 
-a. 
-`π<sub>bcolor</sub>[(σ<sub>sname='albert'</sub>(sailors)) ⋈ reserves ⋈ boat]`
+a. <br/>
+π<sub>bcolor</sub>[(σ<sub>sname='albert'</sub>(sailors)) ⋈ reserves ⋈ boat]
 
-b. 
-`π<sub>sid</sub>(σ<sub>rating≥8(sailors)</sub>) ∪ π<sub>sid</sub>[σ<sub>bid=103</sub>(reserves)]`
+b. <br/>
+π<sub>sid</sub>(σ<sub>rating≥8(sailors)</sub>) ∪ π<sub>sid</sub>[σ<sub>bid=103</sub>(reserves)]
 
-c. 
-`{S | ∃S1 ∈ Sailors(S1.rating < 3 ∧ S.sname = S1.sname ∧ S.age = S1.age)}`
+c. <br/>
+{S | ∃S1 ∈ Sailors(S1.rating < 3 ∧ S.sname = S1.sname ∧ S.age = S1.age)}
 
-d. 
-`{<B> | <S,B,D> ∈ Reserves ∧ D='2019-04-28'}`
+d. <br/>
+{<B> | <S,B,D> ∈ Reserves ∧ D='2019-04-28'}
 
-e. 
-`{<C> | <B,N> ∈ Boat ∧ ∃<S,B,D> ∈ Reserves ∧ ∃<S,'Lubber', R,A> ∈ Sailors }`
+e. <br/>
+{<C> | <B,N> ∈ Boat ∧ ∃<S,B,D> ∈ Reserves ∧ ∃<S,'Lubber', R,A> ∈ Sailors }
 
 
 ## Question 4
